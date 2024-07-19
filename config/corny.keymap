@@ -10,27 +10,27 @@
 
         eisuu {
             bindings = <&kp LANGUAGE_2>;
-            key-positions = <15 16>;
+            key-positions = <15 14>;
         };
 
         pa {
             bindings = <&pa>;
-            key-positions = <36 37>;
+            key-positions = <21 14>;
         };
 
         login {
             bindings = <&login>;
-            key-positions = <22 23>;
+            key-positions = <12 13>;
         };
 
         kana {
             bindings = <&kp LANGUAGE_1>;
-            key-positions = <20 19>;
+            key-positions = <20 21>;
         };
 
         mail {
             bindings = <&mail>;
-            key-positions = <10 11>;
+            key-positions = <23 12>;
         };
 
         to-tenkey {
@@ -43,22 +43,22 @@
         pa: pa {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp P &kp A &kp S &kp W &kp A &kp R &kp D>;
+            bindings = <&kp LS(O) &kp R &kp T &kp L &kp I &kp N &kp D &kp E &kp NUMBER_1>;
             label = "PA";
         };
 
         login: login {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp L &kp O &kp G &kp I &kp N &kp I &kp D>;
+            bindings = <&kp NUMBER_2 &kp NUMBER_4 &kp NUMBER_8 &kp NUMBER_6 &kp N5 &kp NUMBER_2>;
             label = "LOGIN";
         };
 
-        mail: mail {
+        mail: new_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp M &kp A &kp I &kp L &kp AT &kp M &kp A &kp I &kp L &kp DOT &kp J &kp P>;
-            label = "MAIL";
+            bindings = <&kp H &kp I &kp K &kp A &kp R &kp U &kp DOT &kp H &kp A &kp R &kp I &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "NEW_MACRO";
         };
     };
 
@@ -73,14 +73,14 @@
             //                    | GUI | LWR | SPC |                    | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESC        &kp Q               &kp W  &kp E         &kp R        &kp T                            &kp Y                      &kp U        &kp I          &kp O    &kp P     &kp MINUS
-&kp LEFT_GUI   &mt LEFT_GUI A      &kp S  &kp D         &kp F        &kp G                            &kp H                      &kp J        &kp K          &kp L    &kp SEMI  &kp COLON
-&mt RCTRL TAB  &mt LEFT_CONTROL Z  &kp X  &kp C         &kp V        &kp B              &mo 2  &mo 1  &kp N                      &kp M        &kp COMMA      &kp DOT  &kp FSLH  &kp BACKSLASH
-                                          &kp LEFT_ALT  &lt 2 SPACE  &mt RSHIFT DELETE                &mt RIGHT_SHIFT BACKSPACE  &lt 1 ENTER  &mt RCTRL TAB
+&kp Q        &kp W  &kp E           &kp R             &kp T        &kp LEFT_PARENTHESIS                    &kp RIGHT_PARENTHESIS      &kp Y        &kp U              &kp I            &kp O    &kp MINUS
+&mt LCTRL A  &kp S  &mt LEFT_GUI D  &kp F             &kp G        &kp LEFT_BRACKET                        &kp RIGHT_BRACKET          &kp H        &kp J              &mt RIGHT_GUI K  &kp L    &mt RCTRL P
+&mt LCTRL Z  &kp X  &kp C           &kp V             &kp B        &kp CAPSLOCK          &mo 3  &kp LC(Z)  &kp ESCAPE                 &kp N        &kp M              &kp COMMA        &kp DOT  &mt RCTRL SLASH
+                                    &mt LEFT_ALT TAB  &lt 2 SPACE  &mt RSHIFT DELETE                       &mt RIGHT_SHIFT BACKSPACE  &lt 1 ENTER  &mt RIGHT_ALT TAB
             >;
 
             sensor-bindings =
-                <&inc_dec_kp LC(Z) LC(Y)>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
@@ -92,15 +92,15 @@
             //                    | GUI |     | SPC |                    | ENT |     | ALT |
 
             bindings = <
-&trans  &kp N1    &kp N2     &kp N3        &kp N4     &kp N5                        &kp N6    &kp N7    &kp N8    &kp N9        &kp N0     &trans
-&trans  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp SLASH  &kp EQUAL                     &kp HOME  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp END
-&trans  &kp F1    &kp F2     &kp F3        &kp F4     &kp F5     &kp K_MUTE  &none  &kp F6    &kp F7    &kp F8    &kp F9        &kp F10    &kp F11
-                             &trans        &trans     &trans                        &trans    &trans    &trans
+&trans  &kp N1    &kp N2     &kp N3        &kp N4     &kp N5                                       &kp N6    &kp N7    &kp N8    &kp N9        &kp N0     &trans
+&trans  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp SLASH  &kp EQUAL                                    &kp HOME  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp END
+&trans  &kp F1    &kp F2     &kp F3        &kp F4     &kp F5     &kp K_MUTE  &kp C_BRIGHTNESS_DEC  &kp F6    &kp F7    &kp F8    &kp F9        &kp F10    &kp F11
+                             &trans        &trans     &trans                                       &trans    &trans    &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>;
+                <&inc_dec_kp C_BRI_UP C_BRI_DEC>;
         };
 
         raise_layer {
@@ -111,10 +111,10 @@
             //                    | GUI |     | SPC |                    | ENT |     | ALT |
 
             bindings = <
-&trans         &kp EXCL          &kp AT          &kp HASH          &kp DLLR              &kp PRCNT                              &kp CARET          &kp AMPS               &kp UNDER             &kp PLUS                  &kp ASTERISK      &kp EQUAL
-&kp LESS_THAN  &kp SINGLE_QUOTE  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp DOUBLE_QUOTES                      &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET     &kp RIGHT_BRACE           &kp SINGLE_QUOTE  &kp GREATER_THAN
-&bt BT_CLR     &bt BT_SEL 0      &bt BT_SEL 1    &bt BT_SEL 2      &bt BT_SEL 3          &bt BT_SEL 4       &none  &bootloader  &kp PRINTSCREEN    &kp PAUSE_BREAK        &kp C_AL_TEXT_EDITOR  &kp C_AL_GRAPHICS_EDITOR  &kp PIPE          &kp TILDE
-                                                 &trans            &trans                &trans                                 &trans             &trans                 &trans
+&trans         &kp EXCL          &kp AT          &kp HASH          &kp DLLR              &kp PRCNT                            &kp CARET          &kp AMPS               &kp UNDER             &kp PLUS                  &kp ASTERISK      &kp EQUAL
+&kp LESS_THAN  &kp SINGLE_QUOTE  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp DOUBLE_QUOTES                    &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET     &kp RIGHT_BRACE           &kp SINGLE_QUOTE  &kp GREATER_THAN
+&bt BT_CLR     &bt BT_SEL 0      &bt BT_SEL 1    &bt BT_SEL 2      &bt BT_SEL 3          &bt BT_SEL 4       &none  &kp LC(Y)  &kp PRINTSCREEN    &kp PAUSE_BREAK        &kp C_AL_TEXT_EDITOR  &kp C_AL_GRAPHICS_EDITOR  &kp PIPE          &kp TILDE
+                                                 &trans            &trans                &trans                               &trans             &kp SEMICOLON          &kp COLON
             >;
 
             sensor-bindings =
